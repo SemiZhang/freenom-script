@@ -13,11 +13,11 @@ jobs:
         uses: actions/checkout@v3
         
       - name: make
-        run: make install
+        run: sudo make install
       
       - name: Run script
         env: 
             EMAIL: ${{ secrets.EMAIL }}
             PASSWD: ${{ secrets.PASSWD }}
             APPRISE_KEY: ${{ secrets.APPRISE }}
-        run: freenom.sh -r -a
+        run: sudo freenom.sh -r -a
