@@ -17,7 +17,7 @@ jobs:
       
       - name: Run script
         env: 
-            EMAIL: ${{ secrets.EMAIL }}
-            PASSWD: ${{ secrets.PASSWD }}
-            APPRISE_KEY: ${{ secrets.APPRISE }}
+            freenom_email: ${{ secrets.EMAIL }}
+            freenom_passwd: ${{ secrets.PASSWD }}
+            APPRISE_SERVER_URLS: ${{ secrets.APPRISE }}
         run: sudo freenom.sh -r -a
