@@ -19,8 +19,8 @@ jobs:
             APPRISE_SERVER_URLS: ${{ secrets.APPRISE }}
         run: |
           sudo make install
-          sudo sed -i 's/#freenom_email="you@example.com"/freenom_email="$EMAIL"/g' /usr/local/etc/freenom.conf
-          sudo sed -i 's/#freenom_passwd="yourpassword"/freenom_passwd="$PASSWD"/g' /usr/local/etc/freenom.conf
+          sudo sed -i "s/#freenom_email="you@example.com"/freenom_email="$EMAIL"/g" /usr/local/etc/freenom.conf
+          sudo sed -i "s/#freenom_passwd="yourpassword"/freenom_passwd="$PASSWD"/g" /usr/local/etc/freenom.conf
           sudo cat /usr/local/etc/freenom.conf
       
       - name: Run script
