@@ -1,0 +1,23 @@
+name: 'Freenom Renew'
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 */1 * *'
+ 
+jobs:
+  Renew:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CheckOut
+        uses: actions/checkout@v3
+        
+      - name: make
+        run: make install
+      
+      - name: Run script
+        env: 
+            EMAIL: ${{ secrets.EMAIL }}
+            PASSWD: ${{ secrets.PASSWD }}
+            APPRISE_KEY: ${{ secrets.APPRISE }}
+        run: freenom.sh -r -a
